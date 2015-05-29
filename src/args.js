@@ -40,7 +40,7 @@ parser.addArgument(['--redis-port'], {
 parser.addArgument(['--redis-db'], {
     help: 'Redis database number',
     defaultValue: 0,
-    dest: 'redisDbNum',
+    dest: 'redisDbNumber',
     required: false
 });
 

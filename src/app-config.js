@@ -1,5 +1,6 @@
 'use strict';
 
+var RedisStorage = require('ssehub-storage-redis');
 var merge = require('lodash.merge');
 var args = require('./args');
 
@@ -16,8 +17,11 @@ if (!config.logger) {
 }
 
 if (!config.storage) {
-    var RedisStorage = require('./redis-storage');
-    config.storage = new RedisStorage(config);
+    config.storage = new RedisStorage({
+        port: config.redisPort,
+        host: config.redisHost,
+        dbNumber: config.redisDbNumber
+    });
 }
 
 module.exports = config;
