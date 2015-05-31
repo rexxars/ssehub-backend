@@ -34,5 +34,11 @@ function throwErr(err) {
 
 function persistMessage(path, msg) {
     log.trace('Message received on "%s"', path);
-    storage.storeMessage(path, msg, throwErr);
+
+    storage.storeMessage(
+        path,
+        msg,
+        appConfig.storageOptions || {},
+        throwErr
+    );
 }
