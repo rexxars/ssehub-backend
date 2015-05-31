@@ -30,6 +30,6 @@
     "hapi": "^8.5.3",
     "lodash.find": "^3.2.1",
     "lodash.merge": "^3.3.1",
-    "ssehub-storage-redis": "^3.0.0"
+    "ssehub-storage-leveldb": "^1.0.1"
   }
 }

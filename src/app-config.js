@@ -1,6 +1,6 @@
 'use strict';
 
-var RedisStorage = require('ssehub-storage-redis');
+var LevelStorage = require('ssehub-storage-leveldb');
 var merge = require('lodash.merge');
 var args = require('./args');
 
@@ -22,10 +22,8 @@ if (!config.logger) {
 }
 
 if (!config.storage) {
-    config.storage = new RedisStorage({
-        port: config.redisPort,
-        host: config.redisHost,
-        dbNumber: config.redisDbNumber
+    config.storage = new LevelStorage({
+        dataPath: config.dataPath
     });
 }
 

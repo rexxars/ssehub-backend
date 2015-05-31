@@ -1,5 +1,6 @@
 'use strict';
 
+var path = require('path');
 var argparse = require('argparse');
 var pkg = require('../package.json');
 
@@ -23,24 +24,10 @@ parser.addArgument(['--amqp-url'], {
     required: false
 });
 
-parser.addArgument(['--redis-host'], {
-    help: 'Hostname of the redis server',
-    defaultValue: 'localhost',
-    dest: 'redisHost',
-    required: false
-});
-
-parser.addArgument(['--redis-port'], {
-    help: 'Port number of the redis server',
-    defaultValue: 6379,
-    dest: 'redisPort',
-    required: false
-});
-
-parser.addArgument(['--redis-db'], {
-    help: 'Redis database number',
-    defaultValue: 0,
-    dest: 'redisDbNumber',
+parser.addArgument(['--data-path'], {
+    help: 'Path to store LevelDB data (if used)',
+    defaultValue: path.resolve(path.join(__dirname, '..', 'data')),
+    dest: 'dataPath',
     required: false
 });
 
